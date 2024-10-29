@@ -5,36 +5,6 @@ import olddoublearray from "./doublearray.js";
 
 
 describe("doublearray", () => {
-    describe("consistency load", () => {
-        const words = [{ k: "apple", v: 1 }];
-        let trie: DoubleArray;
-        let loadTrie: DoubleArray;
-        let oldTrie: DoubleArray;
-        let oldLoadTrie: DoubleArray;
-        beforeEach((done) => {
-            trie = doublearray.builder().build(words);
-            oldTrie = olddoublearray.builder().build(words);
-            const baseBuffer = trie.bc.getBaseBuffer();
-            const checkBuffer = trie.bc.getCheckBuffer();
-            const oldBaseBuffer = oldTrie.bc.getBaseBuffer();
-            const oldCheckBuffer = oldTrie.bc.getCheckBuffer();
-            if (!baseBuffer || !checkBuffer || !oldBaseBuffer || !oldCheckBuffer) {
-                throw new Error("Failed to get typed arrays");
-            }
-            loadTrie = doublearray.load(baseBuffer, checkBuffer);
-            oldLoadTrie = olddoublearray.load(oldBaseBuffer, oldCheckBuffer);
-            done();
-        });
-        it("Original and loaded tries lookup successfully", () => {
-            expect(trie.lookup("apple")).toBe(oldTrie.lookup("apple"));
-            expect(loadTrie.lookup("apple")).toBe(oldLoadTrie.lookup("apple"));
-        });
-        it("Original and loaded typed arrays are same", () => {
-            expect(trie.bc.getBaseBuffer()).toEqual(oldTrie.bc.getBaseBuffer());
-            expect(loadTrie.bc.getCheckBuffer()).toEqual(oldLoadTrie.bc.getCheckBuffer());
-        });
-    });
-
     describe("contain", () => {
         const dict: { [key: string]: number } = {
             "apple": 1,
@@ -153,6 +123,36 @@ describe("doublearray", () => {
             const trie = doublearray.builder(4).build(words);
             const oldTrie = olddoublearray.builder(4).build(words);
             expect(trie.lookup("bison")).toBe(oldTrie.lookup("bison"));
+        });
+    });
+
+    describe("consistency load", () => {
+        const words = [{ k: "apple", v: 1 }];
+        let trie: DoubleArray;
+        let loadTrie: DoubleArray;
+        let oldTrie: DoubleArray;
+        let oldLoadTrie: DoubleArray;
+        beforeEach((done) => {
+            trie = doublearray.builder().build(words);
+            oldTrie = olddoublearray.builder().build(words);
+            const baseBuffer = trie.bc.getBaseBuffer();
+            const checkBuffer = trie.bc.getCheckBuffer();
+            const oldBaseBuffer = oldTrie.bc.getBaseBuffer();
+            const oldCheckBuffer = oldTrie.bc.getCheckBuffer();
+            if (!baseBuffer || !checkBuffer || !oldBaseBuffer || !oldCheckBuffer) {
+                throw new Error("Failed to get typed arrays");
+            }
+            loadTrie = doublearray.load(baseBuffer, checkBuffer);
+            oldLoadTrie = olddoublearray.load(oldBaseBuffer, oldCheckBuffer);
+            done();
+        });
+        it("Original and loaded tries lookup successfully", () => {
+            expect(trie.lookup("apple")).toBe(oldTrie.lookup("apple"));
+            expect(loadTrie.lookup("apple")).toBe(oldLoadTrie.lookup("apple"));
+        });
+        it("Original and loaded typed arrays are same", () => {
+            expect(trie.bc.getBaseBuffer()).toEqual(oldTrie.bc.getBaseBuffer());
+            expect(loadTrie.bc.getCheckBuffer()).toEqual(oldLoadTrie.bc.getCheckBuffer());
         });
     });
 });

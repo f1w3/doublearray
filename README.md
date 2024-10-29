@@ -21,8 +21,6 @@ bun test
 bun test v1.1.33 (247456b6)
 
 test\doublearray.test.ts:
-✓ doublearray > consistency load > Original and loaded tries lookup successfully
-✓ doublearray > consistency load > Original and loaded typed arrays are same
 ✓ doublearray > contain > Contain bird
 ✓ doublearray > contain > Contain bison
 ✓ doublearray > contain > Lookup bird
@@ -35,11 +33,13 @@ test\doublearray.test.ts:
 ✓ doublearray > consistency contain > Lookup bird
 ✓ doublearray > consistency contain > Lookup bison
 ✓ doublearray > consistency contain > Build
+✓ doublearray > consistency load > Original and loaded tries lookup successfully
+✓ doublearray > consistency load > Original and loaded typed arrays are same
 
  14 pass
  0 fail
  18 expect() calls
-Ran 14 tests across 1 files. [49.00ms]
+Ran 14 tests across 1 files. [46.00ms]
 ```
 
 Double-Array

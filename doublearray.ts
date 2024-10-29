@@ -306,7 +306,7 @@ const newBC = (initial_size: number = 1024) => {
             // }
             first_unused_node = index;
         },
-        getFirstUnusedNode: function () {
+        getFirstUnusedNode: () => {
             // if (!Number.isFinite(first_unused_node)) {
             //     throw 'assertion error: getFirstUnusedNode ' + first_unused_node + ' is not finite number';
             // }
