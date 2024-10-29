@@ -1,11 +1,11 @@
 {
   "name": "doublearray",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "JavaScript implementation of Double-Array trie",
-  "main": "doublearray.js",
+  "main": "doublearray.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/takuyaa/doublearray.git"
+    "url": "https://github.com/f1w3/doublearray.git"
   },
   "keywords": [
     "trie"
@@ -13,7 +13,14 @@
   "author": "takuyaa",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/takuyaa/doublearray/issues"
+    "url": "https://github.com/f1w3/doublearray/issues"
   },
-  "homepage": "https://github.com/takuyaa/doublearray"
+  "homepage": "https://github.com/f1w3/doublearray",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "build": "bun scripts/build.ts"
+  }
 }

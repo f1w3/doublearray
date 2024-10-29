@@ -1,8 +1,51 @@
+# this is a fork of [@takuyaa/doublearray](https://github.com/takuyaa/doublearray)
+
+### build
+
+- [Install bunjs](https://bun.sh/)
+
+- run
+
+```bash
+bun install
+bun run build
+```
+
+### test
+
+```bash
+bun test
+```
+
+```bash
+bun test v1.1.33 (247456b6)
+
+test\doublearray.test.ts:
+✓ doublearray > consistency load > Original and loaded tries lookup successfully
+✓ doublearray > consistency load > Original and loaded typed arrays are same
+✓ doublearray > contain > Contain bird
+✓ doublearray > contain > Contain bison
+✓ doublearray > contain > Lookup bird
+✓ doublearray > contain > Lookup bison
+✓ doublearray > contain > Build
+✓ doublearray > load > Original and loaded tries lookup successfully
+✓ doublearray > load > Original and loaded typed arrays are same
+✓ doublearray > consistency contain > Contain bird
+✓ doublearray > consistency contain > Contain bison
+✓ doublearray > consistency contain > Lookup bird
+✓ doublearray > consistency contain > Lookup bison
+✓ doublearray > consistency contain > Build
+
+ 14 pass
+ 0 fail
+ 18 expect() calls
+Ran 14 tests across 1 files. [49.00ms]
+```
+
 Double-Array
 ============
 
 JavaScript implementation of Double-Array trie.
-
 
 Usage
 -----
@@ -11,7 +54,7 @@ Usage
 
 Node.js example
 
-    var doublearray = require('./doublearray.js');
+    var doublearray = require('./doublearray.ts');
 
     var words = [
         { k: 'a', v: 1 },
@@ -35,7 +78,6 @@ Browser example
 
     var trie = doublearray.builder().build(words);
 
-
 Method chaining
 
     var trie = doublearray
@@ -46,7 +88,6 @@ Method chaining
            .append('奈良先端', 4)
            .append('奈良先端科学技術大学院大学', 5)
            .build();
-
 
 ### Search
 
@@ -59,7 +100,6 @@ Method chaining
     //      { v: 4, k: '奈良先端' },
     //      { v: 5, k: '奈良先端科学技術大学院大学' } ]
 
-
 ### Load
 
 Get BASE or CHECK buffer as Int32Array of typed array
@@ -70,7 +110,6 @@ Get BASE or CHECK buffer as Int32Array of typed array
 Load and create a new DoubleArray object from original buffers
 
     var loaded_trie = doublearray.load(base_buffer, check_buffer);
-
 
 Copyright and license
 ---------------------

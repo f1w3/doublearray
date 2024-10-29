@@ -1,10 +1,11 @@
 {
   "name": "doublearray",
-  "main": "doublearray.js",
+  "main": "doublearray.ts",
   "version": "0.0.2",
-  "homepage": "https://github.com/takuyaa/doublearray",
+  "homepage": "https://github.com/f1w3/doublearray",
   "authors": [
-    "Takuya Asano <takuya.a@gmail.com>"
+    "Takuya Asano <takuya.a@gmail.com>",
+    "@f1w3_ <71214511+f1w3@users.noreply.github.com>"
   ],
   "description": "JavaScript implementation of Double-Array trie",
   "keywords": [
