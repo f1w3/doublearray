@@ -28,18 +28,11 @@ test\doublearray.test.ts:
 ✓ doublearray > contain > Build
 ✓ doublearray > load > Original and loaded tries lookup successfully
 ✓ doublearray > load > Original and loaded typed arrays are same
-✓ doublearray > consistency contain > Contain bird
-✓ doublearray > consistency contain > Contain bison
-✓ doublearray > consistency contain > Lookup bird
-✓ doublearray > consistency contain > Lookup bison
-✓ doublearray > consistency contain > Build
-✓ doublearray > consistency load > Original and loaded tries lookup successfully
-✓ doublearray > consistency load > Original and loaded typed arrays are same
 
- 14 pass
+ 7 pass
  0 fail
- 18 expect() calls
-Ran 14 tests across 1 files. [46.00ms]
+ 9 expect() calls
+Ran 7 tests across 1 files. [42.00ms]
 ```
 
 Double-Array
